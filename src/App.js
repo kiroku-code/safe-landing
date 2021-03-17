@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       <div className="nav">
-        <img src={ACLogo} />
+        <img src={ACLogo} alt="logo" />
       </div>
       <div className="main-title">
         <h1>
@@ -18,7 +18,7 @@ function App() {
         <div className="parent">
           <div className="column">
             <div className="image-wrapper">
-              <img src={Assessment} />
+              <img src={Assessment} alt="assessment" />
             </div>
             <div className="content-wrapper">
               <h3 className="item1">
@@ -44,7 +44,7 @@ function App() {
           </div>
           <div className="column">
             <div className="image-wrapper">
-              <img src={Diploma} />
+              <img src={Diploma} alt="diploma" />
             </div>
             <div className="content-wrapper">
               <h3 className="item1">SAFE Diploma Assessment Form</h3>
