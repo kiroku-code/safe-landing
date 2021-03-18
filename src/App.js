@@ -42,6 +42,7 @@ function App() {
               <a
                 href={"https://editor.trykiroku.com/sign-up?code=SAFE2021"}
                 target="_BLANK"
+                rel="noreferrer"
               >
                 <button>Select</button>
               </a>
@@ -71,6 +72,7 @@ function App() {
               <a
                 href={"https://editor.trykiroku.com/sign-up?code=SAFE2021"}
                 target="_BLANK"
+                rel="noreferrer"
               >
                 <button>Select</button>
               </a>
