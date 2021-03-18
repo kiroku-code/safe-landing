@@ -39,7 +39,12 @@ function App() {
               </p>
             </div>
             <div className="button-container">
-              <button>Select</button>
+              <a
+                href={"https://editor.trykiroku.com/sign-up?code=SAFE2021"}
+                target="_BLANK"
+              >
+                <button>Select</button>
+              </a>
             </div>
           </div>
           <div className="column">
@@ -63,7 +68,12 @@ function App() {
               </p>
             </div>
             <div className="button-container">
-              <button>Select</button>
+              <a
+                href={"https://editor.trykiroku.com/sign-up?code=SAFE2021"}
+                target="_BLANK"
+              >
+                <button>Select</button>
+              </a>
             </div>
           </div>
         </div>
