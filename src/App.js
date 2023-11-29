@@ -40,7 +40,7 @@ function App() {
             </div>
             <div className="button-container">
               <a
-                href={"https://editor.trykiroku.com/sign-up?code=SAFE2021"}
+                href={"https://editor.trykiroku.com/sign-up?code=SAFE2024"}
                 target="_BLANK"
                 rel="noreferrer"
               >
@@ -70,7 +70,7 @@ function App() {
             </div>
             <div className="button-container">
               <a
-                href={"https://editor.trykiroku.com/sign-up?code=SAFE2021"}
+                href={"https://editor.trykiroku.com/sign-up?code=SAFE2024"}
                 target="_BLANK"
                 rel="noreferrer"
               >
