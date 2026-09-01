@@ -1,5 +1,5 @@
 import DiplomaForm from "./imageFiles/diploma.png";
-import ACLogo from "./imageFiles/ac-main-logo.png";
+import ADALogo from "./imageFiles/ada-logo.png";
 import "./App.css";
 
 const SIGN_UP_URL = "https://editor.trykiroku.com/sign-up?code=SAFE";
@@ -82,7 +82,7 @@ export default function App() {
   return (
     <>
       <header className="nav">
-        <img className="nav-logo" src={ACLogo} alt="Aligner Consulting" />
+        <img className="nav-logo" src={ADALogo} alt="Aligner Dental Academy" />
         <p className="nav-powered">
           Powered by <span className="kiroku-logo">Kiroku</span>
         </p>
@@ -90,7 +90,7 @@ export default function App() {
 
       <main>
         <section className="hero">
-          <p className="eyebrow">For Aligner Consulting delegates</p>
+          <p className="eyebrow">For Aligner Dental Academy members</p>
           <h1>Your SAFE assessment form, free for good.</h1>
           <p className="hero-sub">
             Trained with Aligner Consulting, or took the SAFE Diploma? Your
@@ -169,7 +169,7 @@ export default function App() {
 
       <footer className="footer">
         <p>
-          Aligner Consulting · Powered by{" "}
+          Aligner Dental Academy · Powered by{" "}
           <a href="https://www.trykiroku.com" target="_blank" rel="noreferrer">
             Kiroku
           </a>
