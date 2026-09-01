@@ -234,7 +234,8 @@ p {
   box-shadow: 0 10px 30px rgba(185, 143, 71, 0.1);
 }
 
-/* Crops the monitor stand out of the source renders without touching the assets. */
+/* Crops the monitor stand out of the source renders without touching the assets.
+   The ratio is tuned to the current 1611x1379 art - retune it if the art changes. */
 .card-media {
   border-radius: 10px;
   background: var(--tint);

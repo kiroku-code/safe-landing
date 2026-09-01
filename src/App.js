@@ -54,7 +54,7 @@ const STEPS = [
   {
     n: "2",
     title: "Create your account",
-    body: "Your delegate code is applied as you sign up. Nothing to type in.",
+    body: "Use the button above and your delegate code comes with the link. Nothing to type in.",
   },
   {
     n: "3",

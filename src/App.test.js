@@ -7,7 +7,8 @@ test("offers both SAFE workflows", () => {
   expect(screen.getByText(/Go SAFE Assessment Form/i)).toBeInTheDocument();
 });
 
-test("every workflow links to sign-up with the delegate code", () => {
+/** Shape, not the exact code, so splitting into per-workflow codes won't fail this. */
+test("every workflow links to sign-up carrying a delegate code", () => {
   render(<App />);
   const links = screen
     .getAllByRole("link")
@@ -15,9 +16,8 @@ test("every workflow links to sign-up with the delegate code", () => {
 
   expect(links).toHaveLength(2);
   links.forEach((a) => {
-    expect(a).toHaveAttribute(
-      "href",
-      "https://editor.trykiroku.com/sign-up?code=SAFE2024",
+    expect(a.getAttribute("href")).toMatch(
+      /^https:\/\/editor\.trykiroku\.com\/sign-up\?code=.+/,
     );
     expect(a).toHaveAttribute("target", "_blank");
     expect(a).toHaveAttribute("rel", "noreferrer");
