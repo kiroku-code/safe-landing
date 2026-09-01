@@ -28,8 +28,8 @@ const OFFER = [
 
 const INCLUDED = [
   "Structured for the full range of complexities, the way the diploma teaches it.",
-  "Writes your clinical note as you work through the assessment.",
-  "Produces a letter at the end, ready to send.",
+  "Speak as you assess and Kiroku turns it into the written note.",
+  "Generates the patient letter at the end, on Kiroku Pro.",
 ];
 
 const STEPS = [
@@ -99,7 +99,6 @@ export default function App() {
           </p>
           <div className="hero-actions">
             <SignUpButton>Claim your template</SignUpButton>
-            <p className="hero-note">Takes a minute. No card needed to start.</p>
           </div>
         </section>
 
@@ -124,7 +123,8 @@ export default function App() {
               <p className="showcase-variant">Diploma version</p>
               <p className="showcase-lede">
                 A comprehensive assessment for patients being considered for
-                orthodontic treatment across a range of complexities.
+                orthodontic treatment across a range of complexities. Kiroku
+                writes it up as you go, around 60% faster than notes by hand.
               </p>
               <ul className="tick-list">
                 {INCLUDED.map((line) => (

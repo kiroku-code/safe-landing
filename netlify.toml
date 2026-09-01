@@ -1,0 +1,9 @@
+# Nothing in this repo previously recorded where or how the site deploys, which
+# made the live URL hard to trace back. These are the settings the site already
+# uses; pinning them here means the repo is the source of truth, not the UI.
+[build]
+  command = "yarn build"
+  publish = "build"
+
+[build.environment]
+  NODE_VERSION = "22"
