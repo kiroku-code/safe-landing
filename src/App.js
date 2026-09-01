@@ -1,67 +1,82 @@
-import Diploma from "./imageFiles/diploma.png";
-import Assessment from "./imageFiles/assessment.png";
+import DiplomaForm from "./imageFiles/diploma.png";
 import ACLogo from "./imageFiles/ac-main-logo.png";
 import "./App.css";
 
-/**
- * TODO: swap for per-workflow codes once they exist in Firestore, so the choice
- * on this page is actually recorded. Both cards currently share one code, which
- * means we can't tell the two audiences apart in Airtable.
- */
-const SIGN_UP_URL = "https://editor.trykiroku.com/sign-up?code=SAFE2024";
+const SIGN_UP_URL = "https://editor.trykiroku.com/sign-up?code=SAFE";
 
-const WORKFLOWS = [
+/** The terms carried by the SAFE referral code itself. Keep in step with Firestore. */
+const OFFER = [
   {
-    id: "diploma",
-    image: Diploma,
-    eligibility: "SAFE Diploma students",
-    title: "SAFE Diploma Assessment Form",
-    body: "A comprehensive assessment for patients being considered for orthodontic treatment across a range of complexities. Available to previous and current SAFE diploma students.",
-    cta: "Get the Diploma form",
-    primary: true,
+    id: "template",
+    label: "Free for good",
+    title: "The SAFE assessment form, yours to keep",
+    body: "The Diploma version stays free on any plan, for as long as you use Kiroku. It doesn't expire with your trial.",
   },
   {
-    id: "go",
-    image: Assessment,
-    eligibility: (
-      <>
-        Invisalign<span className="sup-small">®</span> Go delegates
-      </>
-    ),
-    title: (
-      <>
-        Invisalign<span className="sup">®</span> Go SAFE Assessment Form
-      </>
-    ),
-    body: (
-      <>
-        Guides you through assessing a patient when considering orthodontic
-        treatment. Available to previous delegates of the Aligner Consulting
-        Invisalign<span className="sup-small">®</span> Go courses.
-      </>
-    ),
-    cta: "Get the Go form",
-    primary: false,
+    id: "discount",
+    label: "Delegate rate",
+    title: "12 months at a reduced price",
+    body: "10% off Kiroku Essential, or 30% off Kiroku Pro, for your first 12 months.",
   },
+  {
+    id: "trial",
+    label: "Try it first",
+    title: "14 days of everything else",
+    body: "Full access while you decide. The assessment form stays free either way.",
+  },
+];
+
+const INCLUDED = [
+  "Structured for the full range of complexities, the way the diploma teaches it.",
+  "Writes your clinical note as you work through the assessment.",
+  "Produces a letter at the end, ready to send.",
 ];
 
 const STEPS = [
   {
     n: "1",
-    title: "Pick your workflow",
-    body: "Choose the form that matches the course you completed.",
+    title: "Start your account",
+    body: "Use the button on this page. Your delegate code comes with the link, so there is nothing to type in.",
   },
   {
     n: "2",
-    title: "Create your account",
-    body: "Use the button above and your delegate code comes with the link. Nothing to type in.",
+    title: "Find it in your templates",
+    body: "The SAFE assessment form is waiting in your template library.",
   },
   {
     n: "3",
-    title: "Keep the template",
-    body: "It sits in your template library and stays free, on any plan.",
+    title: "Use it on your next patient",
+    body: "Open it during the appointment and the note writes itself as you go.",
   },
 ];
+
+function Tick() {
+  return (
+    <svg className="tick" viewBox="0 0 20 20" aria-hidden="true">
+      <path
+        d="M4 10.5l4 4 8-9"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function SignUpButton({ children, variant = "primary" }) {
+  return (
+    <a
+      className={"button button-" + variant}
+      href={SIGN_UP_URL}
+      target="_blank"
+      rel="noreferrer"
+    >
+      {children}
+    </a>
+  );
+}
 
 export default function App() {
   return (
@@ -76,50 +91,56 @@ export default function App() {
       <main>
         <section className="hero">
           <p className="eyebrow">For Aligner Consulting delegates</p>
-          <h1>Your SAFE assessment, built into your notes.</h1>
+          <h1>Your SAFE assessment form, free for good.</h1>
           <p className="hero-sub">
-            Set up Kiroku with your delegate code and the SAFE assessment
-            template is yours to keep, free for as long as you use it.
+            Trained with Aligner Consulting, or took the SAFE Diploma? Your
+            delegate code puts the SAFE assessment form into Kiroku and keeps it
+            free, on any plan, for as long as you use it.
           </p>
-          <a className="button button-primary hero-cta" href="#workflows">
-            See the forms
-          </a>
+          <div className="hero-actions">
+            <SignUpButton>Claim your template</SignUpButton>
+            <p className="hero-note">Takes a minute. No card needed to start.</p>
+          </div>
         </section>
 
-        <section className="workflows" id="workflows">
-          <h2>Choose your workflow.</h2>
-          <p className="section-sub">
-            Completed the 12-month SAFE Clear Aligner Therapy Diploma? Take the
-            Diploma form. Trained with Aligner Consulting on Invisalign
-            <span className="sup-small">®</span> Go? Take the Go form.
-          </p>
+        <section className="offer">
+          <h2>What your delegate code gets you</h2>
+          <ul className="offer-grid">
+            {OFFER.map(({ id, label, title, body }) => (
+              <li className="offer-card" key={id}>
+                <p className="offer-label">{label}</p>
+                <h3>{title}</h3>
+                <p className="offer-text">{body}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
 
-          <div className="card-grid">
-            {WORKFLOWS.map(
-              ({ id, image, eligibility, title, body, cta, primary }) => (
-                <article
-                  className={`card${primary ? " card-featured" : ""}`}
-                  key={id}
-                >
-                  <div className="card-media">
-                    <img src={image} alt="" />
-                  </div>
-                  <div className="card-body">
-                    <p className="card-eligibility">{eligibility}</p>
-                    <h3>{title}</h3>
-                    <p className="card-text">{body}</p>
-                  </div>
-                  <a
-                    className={`button ${primary ? "button-primary" : "button-secondary"}`}
-                    href={SIGN_UP_URL}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {cta}
-                  </a>
-                </article>
-              ),
-            )}
+        <section className="showcase">
+          <div className="showcase-inner">
+            <div className="showcase-copy">
+              <p className="eyebrow">The template</p>
+              <h2>SAFE Assessment Form</h2>
+              <p className="showcase-variant">Diploma version</p>
+              <p className="showcase-lede">
+                A comprehensive assessment for patients being considered for
+                orthodontic treatment across a range of complexities.
+              </p>
+              <ul className="tick-list">
+                {INCLUDED.map((line) => (
+                  <li key={line}>
+                    <Tick />
+                    {line}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="showcase-media">
+              <img
+                src={DiplomaForm}
+                alt="The SAFE assessment form open in Kiroku"
+              />
+            </div>
           </div>
         </section>
 
@@ -134,6 +155,15 @@ export default function App() {
               </li>
             ))}
           </ol>
+        </section>
+
+        <section className="closer">
+          <h2>Ready when you are.</h2>
+          <p className="closer-sub">
+            The assessment form is free for good. The delegate rate runs for your
+            first 12 months.
+          </p>
+          <SignUpButton>Claim your template</SignUpButton>
         </section>
       </main>
 
